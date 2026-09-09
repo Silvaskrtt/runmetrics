@@ -1,0 +1,70 @@
+# ======================
+# Environment
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+
+# ======================
+# Django
+# ======================
+*.mo
+*.pot
+/media/
+/staticfiles/
+
+# ======================
+# Virtualenv
+# ======================
+venv/
+.env/
+.venv/
+
+# ======================
+# IDE / OS
+# ======================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ======================
+# Tests / Coverage
+# ======================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ======================
+# Build / Deploy
+# ======================
+dist/
+build/
+*.egg-info/
+=======
+# Python
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Node (se usar Tailwind depois)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
