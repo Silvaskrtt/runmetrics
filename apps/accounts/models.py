@@ -1,7 +1,8 @@
 import os
 
 from django.db import models
-from django.contrib.auth import User
+from django.contrib.auth.models import User
+from django.db.models.fields import related
 
 def avatar_upload_path(instance, filename):
     """Gera caminho único para o avatar do usuário."""
@@ -15,13 +16,14 @@ def avatar_upload_path(instance, filename):
     
 class Profile(models.Model):
     
-    ROLE_CHOCHICES = (
+    ROLE_CHOICES = [
         ('admin', 'Admin'),
         ('user', 'User'),
-    )
+    ]
     
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=10, choices=ROLE_CHOCHICES, default='user')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='user')
     avatar = models.ImageField(upload_to=avatar_upload_path, null=True, blank=True) 
     phone = models.CharField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
