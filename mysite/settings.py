@@ -34,6 +34,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Django-allauth - Autenticação social e gerenciamento de contas
+    'django.contrib.sites', # Framework de sites do Django (requerido pelo allauth)
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # Apps customizados do projeto
+    'accounts',
+    'goals.apps.GoalsConfig',
+    'metrics.apps.MetricsConfig',
+    'records.apps.RecordsConfig',
+    'workouts.apps.WorkoutsConfig',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # middleware do Django-allauth (gerencia Autenticação e contas)
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
